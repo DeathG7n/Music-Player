@@ -1,10 +1,11 @@
 import React from 'react'
 import Search from "../../constants/search/search"
+import {Container} from "./mainPageStyles"
 
 export default function Index() {
   return (
     <>
-        <div>
+        <Container>
             <Search/>
             <h3>What's hot</h3>
             <h1>Trending</h1>
@@ -28,7 +29,7 @@ export default function Index() {
                 <td>The Ecstatic</td>
               </tr>
             </table>
-        </div>
+        </Container>
     </>
   )
 }

@@ -1,9 +1,19 @@
 import React from 'react'
+import {
+  SearchInput,
+  Container,
+  SearchIcon
+} from "./searchStyles.js"
+import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 
 export default function Index() {
   return (
-    <div>
-        <input type="text" name='search' placeholder='Search for artists, songs and ...'/>
-    </div>
+    <Container>
+      <SearchIcon>
+        <SearchOutlinedIcon sx={{fontSize: "30px"}}/>
+      </SearchIcon>
+      
+      <SearchInput type="text" name='search' placeholder='Search for artists, songs and ...'/>
+    </Container>
   )
 }

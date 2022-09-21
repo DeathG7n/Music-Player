@@ -6,7 +6,6 @@ export const Container = styled.div`
     background-color: #ffffff;
     color: #555;
     padding: 30px 0px 20px 20px;
-    border: 1px solid;
 
     h2{
         display: flex;
