@@ -11,6 +11,23 @@ export default function Index() {
             <small>More </small>
             <img src="" alt="music-photo" />
             <h1>My Playlist</h1>
+            <small>Show All</small>
+            <table>
+              <thead>
+                <th>#</th>
+                <th>TITLE</th>
+                <th>ARTIST</th>
+                <th>TIME</th>
+                <th>ALBUM</th>
+              </thead>
+              <tr>
+                <td>01</td>
+                <td>Priority</td>
+                <td>Mos Def</td>
+                <td>1.25</td>
+                <td>The Ecstatic</td>
+              </tr>
+            </table>
         </div>
     </>
   )
