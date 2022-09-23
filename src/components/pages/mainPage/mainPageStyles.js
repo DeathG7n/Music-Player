@@ -89,7 +89,9 @@ export const ModalContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #0f131280;
+    // background: #0f131280;
+    background-color: rgba(255, 255, 255, .15);  
+    backdrop-filter: blur(5px);
     z-index: 100;
 `
 export const ModalBody = styled.div`
@@ -98,13 +100,18 @@ export const ModalBody = styled.div`
     border: 1px solid #fff;
     border-radius: 20px;
     position: relative;
-    background-color: rgba(255, 255, 255, .15);  
-    backdrop-filter: blur(5px);
+    background: #0f131280;
+    padding: 20px 20px 20px 20px;
+    display: flex;
+    justify-content: center;
 
     span{
         position: absolute;
         top: 10px;
         right: 20px;
         cursor: pointer;
+    }
+    audio{
+        align-self: flex-end;
     }
 `

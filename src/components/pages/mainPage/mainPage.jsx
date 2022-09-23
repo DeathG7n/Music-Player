@@ -80,7 +80,12 @@ export default function Index() {
 
 export const MusicModal = ({openModal, src}) =>{
   const musicRef = useRef()
+  const [play, setPlay] = useState(musicRef.current?.played)
   console.log(musicRef) 
+  function musicControl(){
+    play ? musicRef.current?.play() : musicRef.current?.pause()
+    setPlay(musicRef.current?.played)
+  }
   return(
     <>
       <ModalContainer>
@@ -89,6 +94,7 @@ export const MusicModal = ({openModal, src}) =>{
               <audio ref={musicRef} controls>
                 <source src='https://www.w3schools.com/jsref/horse.ogg'  type="audio/ogg"></source>
               </audio>
+              <div onClick={musicControl}>{play ? "Pause" : "Play"}</div>
           </ModalBody>
       </ModalContainer>
     </>
