@@ -12,7 +12,7 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     position: relative;
-    margin-left: auto;
+    margin: 5px 0 30px 0;
 `
 
 export const SearchIcon = styled.div`
