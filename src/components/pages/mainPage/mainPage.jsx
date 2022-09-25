@@ -83,7 +83,7 @@ export const MusicModal = ({openModal, src}) =>{
   const [play, setPlay] = useState(musicRef.current?.played)
   console.log(musicRef) 
   function musicControl(){
-    play ? musicRef.current?.play() : musicRef.current?.pause()
+    play ? musicRef.current?.pause() : musicRef.current?.play()
     setPlay(musicRef.current?.played)
   }
   return(
