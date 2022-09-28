@@ -6,17 +6,24 @@ import {
   Playlist,
   PlaylistData,
   ModalContainer,
-  ModalBody
+  ModalBody,
+  MusicCover
 } from "./mainPageStyles"
 import { musicData } from '../../constants/musicData'
 import CloseIcon from '@mui/icons-material/Close';
+import PlayCircleRoundedIcon from '@mui/icons-material/PlayCircleRounded';
+import PauseCircleFilledRoundedIcon from '@mui/icons-material/PauseCircleFilledRounded';
+import SkipNextRoundedIcon from '@mui/icons-material/SkipNextRounded';
+import SkipPreviousRoundedIcon from '@mui/icons-material/SkipPreviousRounded';
+import AllInclusiveRoundedIcon from '@mui/icons-material/AllInclusiveRounded';
+import ShuffleRoundedIcon from '@mui/icons-material/ShuffleRounded';
+import LoopRoundedIcon from '@mui/icons-material/LoopRounded';
 
 export default function Index() {
   
   const [openModal, setOpenModal] = useState(false)
   function handleOpenModal(src){
     setOpenModal(!openModal)
-    localStorage.setItem("src", JSON.stringify(src))
   }
   const src = localStorage.getItem("src")
   musicData.sort(()=> 0.5 - Math.random())
@@ -81,20 +88,37 @@ export default function Index() {
 export const MusicModal = ({openModal, src}) =>{
   const musicRef = useRef()
   const [play, setPlay] = useState(musicRef.current?.played)
-  console.log(musicRef) 
+  const [replay, setReplay] = useState(false)
+
   function musicControl(){
-    play ? musicRef.current?.pause() : musicRef.current?.play()
-    setPlay(musicRef.current?.played)
+    play ? musicRef.current?.pause() : musicRef.current?.play();
+    setPlay(!play)
   }
+
+  async function rePlay(){
+    setReplay(!replay)
+    musicRef.current.loop = replay;
+    musicRef.current.load();
+    console.log(replay) 
+  }
+
   return(
     <>
       <ModalContainer>
           <ModalBody>
+              <h3>Song Title - Artist</h3>
+              <MusicCover></MusicCover>
               <span onClick={openModal}><CloseIcon/></span>
               <audio ref={musicRef} controls>
                 <source src='https://www.w3schools.com/jsref/horse.ogg'  type="audio/ogg"></source>
               </audio>
-              <div onClick={musicControl}>{play ? "Pause" : "Play"}</div>
+              <div onClick={rePlay}>{replay ? <AllInclusiveRoundedIcon sx={{fontSize: "20px", color: "white", cursor: "pointer"}}/> : <LoopRoundedIcon sx={{fontSize: "20px", color: "white", cursor: "pointer"}}/>}</div>
+              <div>
+                <SkipPreviousRoundedIcon sx={{fontSize: "40px", color: "black"}}/>
+                <div onClick={musicControl}>{play ? <PauseCircleFilledRoundedIcon sx={{fontSize: "70px", color: "white"}}/>: <PlayCircleRoundedIcon sx={{fontSize: "70px", color: "white"}}/>}</div>
+                <SkipNextRoundedIcon sx={{fontSize: "40px", color: "black"}}/>
+              </div>
+              <div><ShuffleRoundedIcon sx={{fontSize: "20px", color: "white"}}/></div>
           </ModalBody>
       </ModalContainer>
     </>

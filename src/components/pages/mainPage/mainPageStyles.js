@@ -103,7 +103,7 @@ export const ModalBody = styled.div`
     background: #0f131280;
     padding: 20px 20px 20px 20px;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
 
     span{
         position: absolute;
@@ -112,6 +112,26 @@ export const ModalBody = styled.div`
         cursor: pointer;
     }
     audio{
-        align-self: flex-end;
+        display: none;
     }
+    div{
+        display: flex;
+        height: fit-content;
+        gap: 5px;
+        align-self: flex-end;
+        align-items: center;
+    }
+    h3{
+        position: absolute;
+        top: 5%;
+    }
+`
+export const MusicCover = styled.div`
+    width: 80%;
+    min-height: 200px;
+    background-color: white;
+    border: 1px solid white;
+    position: absolute;
+    top: 20%;
+    left: 10%;
 `
